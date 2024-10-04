@@ -1,133 +1,49 @@
-/* General Styles */
-body {
-  font-family: "Inter", sans-serif;
-  background-color: #f0f4f8; /* Soft background color */
-  margin: 0;
-  padding: 0;
-  color: #333; /* Dark text */
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-h1 {
-  color: #6f2c91; /* Primary heading color */
-  font-size: 2.5rem; /* Larger heading */
-  margin-bottom: 20px;
-}
-
-h2 {
-  color: #4b4b4b; /* Secondary heading color */
-  font-size: 1.5rem; /* Slightly smaller than h1 */
-  margin-bottom: 15px;
-}
-
-/* Container */
-.dashboard {
-  padding: 40px;
-}
-
-/* Header Styles */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #e5e7eb; /* Subtle line for separation */
-}
-
-/* Metric Card Styles */
-.metric-card {
-  background: #ffffff; /* Card background */
-  padding: 20px;
-  border-radius: 10px; /* More rounded corners */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.metric-card:hover {
-  transform: translateY(-5px); /* Elevate on hover */
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
-}
-
-.metric-value {
-  font-size: 28px; /* Larger value text */
-  font-weight: bold;
-  color: #6f2c91; /* Primary color for emphasis */
-  margin: 10px 0;
-}
-
-/* Grid Layout for Metrics */
-.metric-cards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-/* Table Styles */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th,
-td {
-  padding: 15px; /* More padding for better spacing */
-  border: 1px solid #e5e7eb;
-  text-align: left;
-  background-color: #ffffff; /* Table background */
-}
-
-th {
-  background-color: #f1f5f9; /* Light header background */
-  color: #6f2c91; /* Header text color */
-  font-weight: 600; /* Bold header */
-}
-
-/* Button Styles */
-button {
-  background-color: #6f2c91; /* Button color */
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-  font-size: 16px; /* Consistent button font size */
-}
-
-button:hover {
-  background-color: #5a2374; /* Darker shade on hover */
-  transform: scale(1.05); /* Slightly grow on hover */
-}
-
-/* Flex and Grid Styles */
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px; /* Space between items */
-}
-
-.main-content {
-  flex: 1;
-  margin-top: 20px;
-}
-
-/* Key Issues and Monitoring Period Styles */
-.key-issues,
-.monitoring-period {
-  background: #ffffff; /* Background color */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px; /* Space below sections */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .metric-cards {
-    flex-direction: column; /* Stack metrics vertically on smaller screens */
+/* Custom Animations */
+@layer utilities {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
-  .grid {
-    flex-direction: column; /* Stack grid items vertically */
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scaleUp {
+    from {
+      transform: scale(0.9);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .animate-slideIn {
+    animation: slideIn 0.8s ease-in-out;
+  }
+
+  .animate-scaleUp {
+    animation: scaleUp 0.5s ease-in-out;
+  }
+
+  .animate-pop {
+    animation: scaleUp 0.3s ease-in-out;
   }
 }
